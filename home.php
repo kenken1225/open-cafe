@@ -5,6 +5,13 @@ Template Name: home-page
 ?>
 
 
+<?php
+/*
+Github- test
+*/
+?>
+
+
 <?php get_header(); ?>
 
 <main>
