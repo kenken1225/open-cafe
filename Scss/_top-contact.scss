@@ -1,0 +1,276 @@
+@use "common";
+
+
+.l-contact-wrapper {
+    max-width: 688px;
+    margin: 123px auto;
+
+    @include common.mq(sp) {
+        padding: 0 20px;
+        margin: 100px auto;
+    }
+}
+
+.l-contact-box {
+    width: 100%;
+}
+
+
+.top-contact-title {
+    color: common.$color-main;
+    font-size: 28px;
+    font-weight: 900;
+    text-align: center;
+
+    @include common.mq(sp) {
+        font-size: 20px;
+        font-weight: 700;
+    }
+}
+
+.top-contact-text {
+    margin-top: 33px;
+    color: common.$color-main;
+    text-align: left;
+
+    @include common.mq(sp) {
+        font-size: 14px;
+    }
+}
+
+
+/*デザインcss↓*/
+.box_con {
+    width: 100%;
+    margin-top: 89px;
+    color: common.$color-main;
+
+    @include common.mq(sp) {
+        margin-top: 70px;
+    }
+}
+
+.box_con form {
+    width: 100%;
+}
+
+.box_con form table {
+    width: 100%;
+}
+
+.box_con form table tr {
+    position: relative;
+}
+
+
+.box_con form table tr th {
+    text-align: left;
+    width: 30%;
+    font-size: 16px;
+    font-weight: 700;
+    vertical-align: top;
+    padding-top: 20px;
+
+    @include common.mq(sp) {
+        width: 100%;
+        display: block;
+        padding-top: 10px;
+    }
+}
+
+
+.box_con form table tr th span {
+    background: common.$color-accent;
+    padding: 3px 5px;
+    color: #fff;
+    margin-left: 5px;
+    font-size: 11px;
+}
+
+.box_con form table tr td {
+    padding: 20px 10px;
+
+    @include common.mq(sp) {
+        display: block;
+        width: 100%;
+        padding: 20px 0;
+    }
+
+}
+
+.box_con form table tr input,
+.box_con form table tr textarea {
+    border-radius: 6px;
+    border: 1px solid common.$color-main;
+}
+
+
+.box_con form table tr .box_br {
+    display: block;
+}
+
+.box_con form table tr select {
+    border: 1px solid #97ae88;
+}
+
+.box_con form table tr label input {
+    cursor: pointer;
+    display: none;
+    vertical-align: middle;
+}
+
+.box_br {
+    &+& {
+        margin-top: 19px;
+    }
+}
+
+.box_con form table tr .radio02-input+label {
+    padding-left: 35px;
+    margin-right: 20px;
+    position: relative;
+}
+
+.box_con form table tr .radio02-input+label:before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 24px;
+    height: 24px;
+    border: 1px solid common.$color-main;
+    background-color: #fff;
+    border-radius: 50%;
+    transform: translateY(-50%);
+}
+
+.box_con form table tr .radio02-input:checked+label:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 6px;
+    width: 12px;
+    height: 12px;
+    background: common.$color-accent;
+    border-radius: 50%;
+    transform: translateY(-50%);
+}
+
+.box_con form table tr select,
+.box_con form table tr input,
+.box_con form table tr textarea {
+    width: 100%;
+    height: 3em;
+    padding: .5em;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.box_con form table tr textarea {
+    height: 10em;
+}
+
+
+.table-text {
+    color: common.$color-main;
+    text-align: left;
+    margin-top: 40px;
+
+    @include common.mq(sp) {
+        font-size: 14px;
+    }
+}
+
+.contact-not-valid-tip{
+    font-size: 16px;
+    display: block;
+    color: common.$color-accent;
+    margin-top: 5px;
+    display: none;
+    opacity: 0;
+    transition: opacity .5s ease;
+    //表示状態
+    [aria-hidden="false"] {
+        display: block;
+        opacity: 1;
+    }
+}
+
+
+
+// ーーーー
+// ボタン
+// ーーーー
+
+.btn-contact {
+    margin: 40px auto;
+    /*影の基点とするためrelativeを指定*/
+    position: relative;
+    /*ボタンの形状*/
+    text-decoration: none;
+    text-align: center;
+    outline: none;
+    /*アニメーションの指定*/
+    transition: all 0.3s ease;
+
+    &:before {
+        content: "";
+        /*絶対配置で影の位置を決める*/
+        position: absolute;
+        z-index: -1;
+        top: 5px;
+        left: 5px;
+        /*影の形状*/
+        width: 100%;
+        height: 100%;
+        background-color: transparent;
+        border-bottom: 1px solid #222222;
+        border-right: 1px solid #222222;
+    }
+}
+
+.btn-contact span {
+    transition: all 0.3s ease;
+
+
+    &:hover {
+                background-color: #333;
+                color: #fff;
+                transform: translate(4px, 4px);
+            }
+}
+
+.btn-contact span {
+    position: relative;
+    z-index: 2;
+    /*z-indexの数値をあげて文字を背景よりも手前に表示*/
+    /*テキストの形状*/
+    display: block;
+    padding: 25px 70px;
+    background: #222222;
+    color: #fff;
+    /*アニメーションの指定*/
+    transition: all 0.3s ease;
+
+}
+
+.btn-contact input[type="submit"] {
+    border: none;
+    background: transparent;
+    border-radius: 0;
+    color: #fff;
+    display: block;
+    height: 100%;
+    width: 100%;
+    position: relative;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+
+
+
+// コンタクト送信ページ

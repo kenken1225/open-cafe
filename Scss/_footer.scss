@@ -1,0 +1,66 @@
+@use "common";
+
+.footer {
+    background-color: common.$color-main;
+    color: #fff;
+    width: 100%;
+    position: relative;
+
+    &::before {
+        content: '';
+        position: absolute;
+        background: url(../img/icons/bg_coffee-beans3.png) right center no-repeat;
+        background-size: 100% auto;
+        pointer-events: none;
+        z-index: 30;
+        height: 415px;
+        width: 310px;
+        top: -190px;
+        left: 10px;
+
+        @include common.mq(tab) {
+            top: -140px;
+            left: -60px;
+
+        }
+
+        @include common.mq(sp) {
+            height: 114px;
+            width: 126px;
+            top: -47px;
+            left: -31px;
+        }
+    }
+}
+
+.footer-container {
+    margin: 0 auto;
+    max-width: common.$layout-width-canvas;
+    position: relative;
+    padding: 30px 0 20px;
+}
+
+.pagetop {
+    display: none;
+    position: fixed;
+    right: 15px;
+    bottom: 25px;
+    width: 50px;
+    height: 50px;
+    z-index: 20;
+}
+
+.pagetop a {
+    display: block;
+
+}
+
+.footer-text {
+    text-align: center;
+    font-size: 15px;
+    margin-top: 30px;
+
+    @include common.mq(sp) {
+        font-size: 12px;
+    }
+}

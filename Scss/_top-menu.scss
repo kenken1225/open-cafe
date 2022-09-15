@@ -1,0 +1,145 @@
+@use "common";
+
+
+.l-menus-tab-wrapper {
+    margin-top: 122px;
+}
+
+.l-menus-tab-box {
+    margin: 0 auto;
+    max-width: calc(1280px - 29vw);
+}
+
+.l-menus-tab-list {
+    display: flex;
+    justify-content: space-between;
+}
+
+.l-menu-tabs {
+    background-color: #888888;
+    width: 200px;
+    height: 70px;
+
+    &+& {
+        margin-left: 15px;
+    }
+}
+
+.l-menu-tab {
+    color: #fff;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+    transition: 0.5s;
+
+    &:hover {
+        text-decoration: none;
+        background-color: common.$color-main;
+    }
+
+    &::after {
+        position: absolute;
+        content: "";
+        border: 1px solid #fff;
+        z-index: 2;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        height: calc(100% - 4px);
+        width: calc(100% - 4px);
+    }
+
+}
+
+.l-menu-tex {
+    font-size: 16px;
+    line-height: 1.25;
+    text-align: center;
+}
+
+.l-menu-box{
+    display: none;
+}
+
+.l-menu-box.active{
+    display: block;
+}
+
+
+// -------------
+// メニュー
+// -------------
+
+.l-menu-wrapper {
+    max-width: common.$layout-width-canvas;
+    width: 100%;
+    margin: 84px auto;
+}
+
+.l-menu-box {
+    padding: 0 40px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.l-menu-list {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.l-menu-item {
+    margin-right: 3.6%;
+    width: calc(24% - (3.6% * 3/4));
+
+    &:nth-child(4n) {
+        margin-right: 0;
+    }
+
+    &:nth-child(n + 5) {
+        margin-top: 35px;
+    }
+
+}
+
+.l-menu-card {
+    display: block;
+}
+
+
+.l-menu-card-box {
+    height: 0;
+    padding-top: 100%;
+    position: relative;
+}
+
+.l-menu-card-img {
+    display: block;
+    height: 100%;
+    left: 0;
+    object-fit: cover;
+    object-position: 50% 50%;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.l-menu-card-body {
+    margin-top: 12px;
+}
+
+.l-menu-card-text {
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.l-menu-card-price {
+    font-size: 24px;
+    font-weight: 700;
+    font-family: common.$font-family-price;
+    text-align: center;
+}

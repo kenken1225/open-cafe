@@ -1,0 +1,170 @@
+@use "common";
+
+
+.access-lg-wrapper {
+    background-color: common.$color-dark;
+    position: relative;
+    z-index: 1;
+    padding: 80px 0 80px;
+}
+
+.access {
+    position: relative;
+
+    &:before {
+        position: absolute;
+        content: '';
+        background: url("../img/icons/bg_bread.png") right top no-repeat;
+        background-size: 100% auto;
+        pointer-events: none;
+        right: -40px;
+        z-index: 2;
+        width: 374px;
+        height: 359px;
+        top: -300px;
+
+        @include common.mq(sp) {
+            width: 188px;
+            height: 180px;
+            right: -38px;
+            top: -170px;
+        }
+    }
+
+}
+
+.access-title {
+    position: relative;
+
+    &::before {
+        position: absolute;
+        content: '';
+        background: url("../img/icons/img_balloon-access.png") left top no-repeat;
+        background-size: 100% auto;
+        pointer-events: none;
+        left: 23%;
+        z-index: 2;
+        width: 234px;
+        height: 200px;
+        top: -125px;
+
+        @include common.mq(tab) {
+            left: 120px;
+        }
+
+        @include common.mq(sp) {
+            width: 200px;
+            height: 172px;
+            top: -111px;
+            left: calc(50% - 215px);
+        }
+
+    }
+}
+
+.access-bg-box {
+    margin-top: 42px;
+
+    @include common.mq(tab) {
+        padding: 0 40px;
+    }
+
+    @include common.mq(sp) {
+        padding: 0 20px;
+    }
+}
+
+.access-sub-wrapper {
+    margin: 0 auto 0;
+    max-width: 768px;
+    position: relative;
+}
+
+
+
+.access-map-container {
+    max-width: 768px;
+    margin: 0 auto 0;
+    border-width: 10px;
+    border: 6px solid #fff;
+    padding: 26%;
+    position: relative;
+    width: 100%;
+
+    &>iframe {
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+
+    }
+}
+
+.access-tables {
+    display: flex;
+    justify-content: space-between;
+}
+
+.access-tables {
+    margin-top: 42px;
+
+    @include common.mq(sp) {
+        flex-wrap: wrap;
+        margin-top: 25px;
+    }
+
+}
+
+.access-table-box {
+    flex-basis: 350px; // widthと同じ働き
+
+}
+
+.access-table-item {
+    display: flex;
+    border-bottom: 1px solid #222222;
+    padding-bottom: 17px;
+
+    @include common.mq(pc) {
+        &+& {
+            margin-top: 17px;
+        }
+    }
+
+    @include common.mq(sp) {
+        margin-top: 17px;
+    }
+
+}
+
+.access-table-content {
+    font-size: 14px;
+    line-height: 1.6;
+    font-weight: 700;
+    flex-shrink: 0; // box内に収めるもの,値が大きくなるほど要素が小さくなる
+    margin-right: 20px;
+    width: 60px;
+
+    @include common.mq(tab) {
+        font-weight: 500;
+    }
+
+    @include common.mq(sp) {
+        font-weight: 500;
+    }
+}
+
+.access-table-description {
+    line-height: 1.7;
+    font-weight: 700;
+    font-size: 14px;
+
+    @include common.mq(tab) {
+        font-weight: 500;
+    }
+
+    @include common.mq(sp) {
+        font-weight: 500;
+    }
+}

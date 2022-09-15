@@ -1,0 +1,166 @@
+@use "common";
+
+.news-lg-wrapper {
+    padding: 100px 0 150px;
+}
+
+.news {
+    position: relative;
+
+    &:before {
+        content: '';
+        position: absolute;
+        background: url("../img/icons/bg_plate.png") right center no-repeat;
+        background-size: 100% auto;
+        pointer-events: none;
+        z-index: 2;
+        height: 320px;
+        width: 354px;
+        top: -250px;
+        left: -80px;
+
+        @include common.mq(sp) {
+            height: 185px;
+            width: 205px;
+            left: -52px;
+            top: -100px;
+        }
+    }
+}
+
+.news-wrapper {
+    margin-top: 42px;
+
+    @include common.mq(tab) {
+        padding: 0 40px;
+    }
+
+    @include common.mq(sp) {
+        padding: 0 20px;
+    }
+}
+
+.news-card-bigbox {
+    display: flex;
+    justify-content: space-between;
+
+    @include common.mq(sp) {
+        display: block;
+    }
+}
+
+.news-item-latest {
+    width: 46%;
+    margin-bottom: 40px;
+
+    @include common.mq(sp) {
+        width: 100%;
+    }
+}
+
+.news-card {
+    position: relative;
+}
+
+.news-item-large {
+    width: 100%;
+}
+
+.news-item-link {
+    display: block;
+}
+
+// .news-card-img {
+//     height: 0;
+//     padding-top: 62.5%;
+//     overflow: hidden;
+//     position: relative;
+//     width: 100%;
+// }
+
+
+// .news-cad-img img {
+//     height: 100%;
+//     width: 100%;
+//     left: 0;
+//     object-fit: cover;
+//     object-position: 50% 50%; // 要素を真ん中に置く
+//     position: absolute;
+//     top: 0;
+// }
+
+.news-card-img:hover img {
+    transform: scale(1.1); // 要素を拡大・縮小
+    transition-duration: 0.5s; // 要素の変化の時間
+}
+
+.news-card-body {
+    margin-top: 14px;
+}
+
+.news-item-title {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.6;
+
+    @include common.mq(sp) {
+        font-size: 14px;
+        line-height: 1.7;
+    }
+}
+
+.news-item-text {
+    font-size: 14px;
+    line-height: 1.75;
+    margin-top: 23px;
+
+    @include common.mq(sp) {
+        font-size: 12px;
+        margin-top: 11px;
+    }
+}
+
+.news-item-date {
+    font-size: 14px;
+    margin-top: 16px;
+
+    @include common.mq(sp) {
+        font-size: 12px;
+    }
+}
+
+
+// スモールサイズ
+
+.news-item-other {
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    @include common.mq(sp) {
+        width: 100%;
+    }
+}
+
+.news-item-others {
+    margin-right: 3.53%;
+    width: 46.36%;
+
+    &:nth-child(n+3) {
+        margin-top: 32px;
+    }
+}
+
+.news-item-subtitle {
+    font-size: 14px;
+
+    @include common.mq(sp) {
+        font-size: 12px;
+        font-weight: 700;
+    }
+}
+
+.news-item-date {
+    margin-top: 20px;
+}

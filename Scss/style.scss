@@ -1,0 +1,34 @@
+@use "common";
+@use "drawer";
+@use "top";
+@use "concept";
+@use "splset";
+@use "grandmenu";
+@use "gallery";
+@use "news";
+@use "access";
+@use "footer";
+
+
+// コンセプトページ
+@use "top-concept";
+
+// メニューページ
+@use "top-menu";
+
+// ニュースページ
+@use "top-news";
+
+// ニュース記事ページ
+@use "top-news-single";
+
+// ショップ（地図）ページ
+@use "top-shop";
+
+// ギフトページ
+@use "top-gift";
+
+// コンタクトページ
+@use "top-contact";
+
+

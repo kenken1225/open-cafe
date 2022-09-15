@@ -1,0 +1,552 @@
+@use "common";
+
+#js-header {
+    flex-direction: column;
+    color: #efefef;
+    background-color: common.$color-main;
+    max-width: 375px;
+    width: 100%;
+    height: 100%;
+    padding: 10px 15px 180px;
+    margin-left: auto;
+    right: 0;
+    top: 0;
+    z-index: 900;
+    overflow: auto;
+    position: fixed;
+    text-align: center;
+    transform: translateX(100%);
+    transition: transform 1s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+#js-header ul {
+    list-style: none;
+}
+
+#js-header a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    transition: opacity .6s ease;
+}
+
+#js-header a:hover {
+    opacity: 0.6;
+}
+
+.is-open {
+    overflow: hidden;
+    // はみ出た部分は表示しない
+}
+
+.is-open #toggle-box {
+    background-color: #fff;
+}
+
+.is-open #toggle-box>span {
+    background: common.$color-main;
+}
+
+.is-open #toggle-box>span:nth-child(1) {
+    top: 50%;
+    transform: rotate(45deg) translateY(-50%);
+}
+
+.is-open #toggle-box>span:nth-child(2) {
+    width: 0;
+}
+
+.is-open #toggle-box>span:nth-child(3) {
+    top: 50%;
+    transform: rotate(-45deg) translateY(-50%);
+}
+
+.is-open #js-header {
+    z-index: 999;
+    transform: translateX(0);
+}
+
+.overlay {
+    background: rgba(0, 0, 0, 0.5);
+    height: 100vh;
+}
+
+// テスト終了
+
+// .drawer-bg,
+// header,
+// nav {
+//     display: none;
+// }
+
+
+// .drawer-bg {
+//     background-color: rgba(0, 0, 0, 0.3);
+//     height: 100%;
+//     left: 0;
+//     opacity: 1;
+//     pointer-events: none;
+//     position: fixed;
+//     top: 0;
+//     // transition: opacity .5s;
+//     width: 100%;
+//     z-index: 39;
+//     // display: none;
+// }
+
+// .header {
+//     z-index: 40;
+//     position: fixed;
+//     width: 100%;
+//     left: 0;
+//     top: 0;
+//     // transition: .3s;
+//     // display: none;
+// }
+
+
+
+.header-logo {
+    width: 120px;
+}
+
+.header-nav-menu {
+    margin-top: 61px;
+    padding-left: 40px;
+}
+
+
+.header-logo-link {
+    background: url(../img/logo_light.png) left top no-repeat;
+    background-size: 100% auto;
+    display: block;
+    height: 0;
+    margin: 0 auto;
+    overflow: hidden;
+    padding-top: 52.5%;
+    width: 120px;
+
+    &>a {
+        color: inherit;
+        text-decoration: none;
+        transition: opacity 0.3s;
+    }
+}
+
+
+.header-nav {
+    display: block;
+}
+
+.header-nav-item {
+    text-align: left;
+
+    &+& {
+        margin-top: 30px;
+    }
+}
+
+
+.header-nav-item-en {
+    display: inline-block;
+    font-size: 24px;
+    letter-spacing: 0.12em;
+}
+
+.header-nav-item-jp {
+    bottom: 1px;
+    display: inline-block;
+    font-size: 10px;
+    margin-left: 27px;
+    position: relative;
+
+    &::before {
+        content: "/";
+        color: #fff;
+        font-size: 10px;
+        position: absolute;
+        top: 0;
+        left: -30px;
+    }
+}
+
+
+// SNS
+
+.header-sns-list {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.header-sns-item {
+    font-size: 25px;
+}
+
+.header-sns-item-link {
+    width: 50px;
+    padding-top: 40px;
+    background-size: 100% auto;
+}
+
+
+// ボタン
+
+#toggle {
+    position: fixed;
+    top: 25px;
+    right: 25px;
+
+    @include common.mq(pc) {
+        display: none;
+    }
+}
+
+#toggle-box {
+    position: relative;
+    height: 50px;
+    width: 50px;
+    cursor: pointer;
+    background-color: common.$color-main;
+    border-radius: 50%;
+    display: inline-block;
+    position: fixed;
+    top: 32px;
+    right: 16px;
+}
+
+#toggle-box>span {
+    width: 50%;
+    height: 1px;
+    left: 12px;
+    display: block;
+    background: #fff;
+    position: absolute;
+    transition: transform .6s ease-in-out, top .5s ease, bottom .5s ease;
+}
+
+#toggle-box>span:nth-child(1) {
+    top: 30%;
+}
+
+#toggle-box>span:nth-child(2) {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+#toggle-box>span:nth-child(3) {
+    bottom: 30%;
+}
+
+#toggle {
+    z-index: 1000;
+}
+
+#main {
+    position: relative;
+    z-index: 990;
+}
+
+/* 透過指定 */
+.overlay {
+    background: rgba(0, 0, 0, 0.5);
+    height: 100%;
+    left: 0;
+    opacity: 1;
+    pointer-events: none;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 900;
+}
+
+
+// ボタン
+
+// .btn {
+//     /* ボタンの配置位置  */
+//     border-radius: 50%;
+//     background-color: #fff;
+//     display: inline-block;
+//     height: 60px;
+//     width: 60px;
+//     overflow: hidden;
+//     transition: opacity .3s;
+//     position: fixed;
+//     top: 32px;
+//     right: 16px;
+//     z-index: 50;
+// }
+
+// /***** 真ん中のバーガー線 *****/
+// .btn-line {
+//     display: block;
+//     position: relative;
+//     background-color: common.$color-main;
+//     border-radius: 1px;
+//     width: 27px;
+//     height: 2px;
+//     left: 17px;
+//     // transition: .2s;
+
+//     /****** 上下のバーガー線 *****/
+//     &::before,
+//     &::after {
+//         content: "";
+//         position: absolute;
+//         width: 100%;
+//         height: 100%;
+//         background-color: common.$color-main;
+//         // transition: .5s;
+//         right: 0;
+//         border-radius: 1px;
+
+//     }
+
+//     &::before {
+//         /* 上の線の位置 */
+//         transform: translateY(-12px);
+//     }
+
+//     &::after {
+//         /* 下の線の位置 */
+//         transform: translateY(12px);
+//     }
+// }
+
+// /***** メニューオープン時 *****/
+// .btn-line.open {
+//     background-color: transparent;
+//     /* 真ん中の線を透明に */
+
+//     &::before,
+//     &::after {
+//         content: "";
+//         background-color: common.$color-main;
+//         /* 上下の線の色を変える */
+//         transition: .2s;
+//     }
+
+//     &::before {
+//         transform: rotate(45deg);
+//         /* 上の線を傾ける */
+//     }
+
+//     &::after {
+//         transform: rotate(-45deg);
+//         /* 下の線を傾ける */
+//     }
+// }
+
+
+// // ---
+// // ドロワー開閉
+// // ーー
+// .header-container.open {
+//     right: 0;
+// }
+
+
+
+// @include sp(tab) {}
+
+
+
+// .header {
+//     left: 0;
+//     top: 0;
+//     position: fixed;
+//     transition: opacity .3s;
+//     width: 100%;
+//     z-index: 40;
+//     display: block;
+// }
+
+// .is-drawerActive .header__container{
+//     opacity: 1;
+//     pointer-events: auto;
+
+//     @include sp(sp) {
+//         right: 375px;
+//     }
+// }
+
+// .header-container {
+//     background-color: common.$color-main;
+//     height: 100%;
+//     max-width: 375px;
+//     width: 100%;
+//     padding: 10px 15px 180px;
+//     position: fixed;
+//     top: 0;
+//     transition: right .5s, opacity .5s;
+// }
+
+// .header-logo{
+//     width: 120px;
+// }
+
+// .header-logo-link{
+//     background: url(/img/logo_dark.png) left top no-repeat;
+//     background-size: 100% auto;
+//     display: block;
+//     height: 0;
+//     margin: 0 auto;
+//     overflow: hidden;
+//     padding-top: 52.5%;
+//     width: 120px;
+
+//     & > a{
+//         color: inherit;
+//         text-decoration: none;
+//         transition: opacity 0.3s;
+//     }
+// }
+
+// .header-nav-menu{
+//     margin: 55px auto 47px;
+
+//     & > nav{
+//         display: block;
+//     }
+
+//     @include sp(sp) {
+//         padding: 0 0 0 26px;
+//     }
+// }
+
+// .header-nav{
+//     display: block;
+// }
+
+// .header-nav-item-link{
+//     color: #fff;
+//     display: block;
+// }
+
+// .header-nav-item-en{
+//     display: inline-block;
+//     font-family: common.$font-family-english-2;
+//     font-size: 24px;
+//     letter-spacing: 0.12em;
+// }
+
+// .header-nav-item-jp{
+//     bottom: 1px;
+//     display: inline-block;
+//     font-size: 10px;
+//     margin-left: 27px;
+// }
+
+
+// // SNS
+
+// .header-sns-list{
+//     align-items: center;
+//     display: flex;
+//     justify-content: center;
+// }
+
+// .header-sns-item-link{
+//     width: 40px;
+//     padding-top: 40px;
+//     background-size: 100% auto;
+// }
+
+
+// // 画面右上のボタン
+
+// .header-menu-button.-fixed{
+//     position: fixed;
+//     right: 10px;
+//     top: 10px;
+//     z-index: 100;
+// }
+
+// .is-drawerActive .menu-button{
+//     background-color: #fff;
+// }
+
+// .menu-button{
+//     border-radius: 50%;
+//     display: inline-block;
+//     height: 60px;
+//     overflow: hidden;
+//     transition: opacity .3s;
+//     width: 68px;
+// }
+
+// .is-drawerActive .menu-button-line{
+//     background-color: #382620;
+// }
+
+// .menu-button-line{
+//     border-radius: 1px;
+//     height: 2px;
+//     left: 50%;
+//     position: absolute;
+//     top: 50%;
+//     transform: translate(-50%, -50%);
+//     transition: background .3s, top .3s;
+//     width: 27px;
+
+//     &::before{
+//         top: 7px;
+
+//         @include sp(sp) {
+//             top: -10px;
+//         }
+//     }
+
+// }
+
+
+// .menu-button-text{
+//     color: transparent;
+//     height: 0;
+//     left: 0;
+//     position: absolute;
+//     top: 0;
+
+//     &::after{
+//         top: 7px;
+
+//         @include sp(sp) {
+//             top: -10px;
+//         }
+//     }
+// }
+
+
+// .header-fixed-wrap{
+//     padding: 10px 15px;
+
+//     @include sp(sp) {
+//         padding: 0;
+//     }
+// }
+
+// .header-fixed-wrap-logo{
+//     width: 120px;
+
+//     @include sp(sp) {
+//         display: none;
+//     }
+// }
+
+// .header-fixed-wrap-logo-link{
+//     background: url(/img/logo_dark.png) left top no-repeat;
+//     background-size: 100% auto;
+//     display: block;
+//     height: 0;
+//     margin: 0 auto;
+//     overflow: hidden;
+//     padding-top: 52.5%;
+//     width: 120px;
+
+//     & > a{
+//         color: inherit;
+//         text-decoration: none;
+//         transition: opacity 0.3s;
+//     }
+// }

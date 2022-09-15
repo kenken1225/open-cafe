@@ -1,0 +1,518 @@
+@use "common";
+
+// -----
+// 原因調査コード
+// -----
+// * {
+// 	outline: 1px solid magenta;
+// }
+
+.body-lg-wrapper {
+    overflow: hidden;
+}
+
+.main-lg-wrapper {
+    display: flex;
+    height: auto;
+
+    @include common.mq(sp) {
+        height: 100vh;
+    }
+}
+
+.main-menu {
+    display: block;
+    height: auto;
+    padding: 28px 18px 0;
+    width: 15.6%;
+
+    @include common.mq(tab) {
+        display: none;
+    }
+
+    @include common.mq(sp) {
+        display: none;
+    }
+}
+
+.main-menu-container {
+    position: relative;
+}
+
+.main-menu-logo {
+    width: 164px;
+    width: 100%;
+    margin: 0 auto;
+
+}
+
+.main-menu-logo-img {
+    width: 163px;
+    padding-top: 86px;
+    height: 0;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.main-nav-menus {
+    display: block;
+}
+
+.main-menus-wrapper {
+    padding: 40px 0;
+}
+
+.main-nav-menu {
+    margin: 0 auto 40px;
+}
+
+.main-nav {
+    display: block;
+}
+
+.main-nav-item-link {
+    display: block;
+    text-align: center;
+    margin-top: 25px;
+}
+
+.main-nav-item-en {
+    display: block;
+    font-family: common.$font-family-english-2;
+    font-size: 16px;
+    letter-spacing: 0.12em;
+}
+
+.main-nav-item-jp {
+    display: block;
+    font-size: 10px;
+    margin-top: 2px;
+}
+
+
+.main-sns-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-sns-item {
+    font-size: 20px;
+
+    &+& {
+        margin-left: 20px;
+    }
+
+    @include common.mq(sp) {
+        font-size: 25px;
+
+        &+& {
+            margin-left: 30px;
+        }
+    }
+}
+
+
+// -----
+// ヘッダーロゴ（スマホ版）
+// -----
+
+.header-sp {
+    position: relative;
+
+    @include common.mq(pc) {
+        display: none;
+    }
+
+    @include common.mq(tab) {
+        display: none;
+    }
+
+    @include common.mq(sp) {
+        width: 120px;
+        height: 40px;
+        position: absolute;
+        top: 23px;
+        left: 20px;
+        z-index: 10;
+    }
+
+}
+
+// -----
+// メインビジュアル
+// -----
+
+.main-visual {
+    position: relative;
+    margin-left: auto;
+    width: calc(100% - 15.6%);
+    z-index: 1;
+    height: auto;
+    padding-bottom: 60px;
+
+    @include common.mq(tab) {
+        width: 100%;
+    }
+
+    @include common.mq(sp) {
+        height: 100vh;
+        position: relative;
+        width: 100%;
+        z-index: 1;
+        padding: 0;
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        background-color: common.$color-dark;
+        width: 91.1%;
+        z-index: -1;
+        height: 100%;
+        bottom: 5px;
+        right: 0;
+    }
+}
+
+
+.wrap {
+    @include common.mq(sp) {
+        height: 100%;
+    }
+}
+
+
+.swiper-container {
+    list-style: none;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden;
+    padding: 0;
+    position: relative;
+    z-index: 1;
+    height: 100%;
+
+    @include common.mq(sp) {
+        height: 100%;
+    }
+
+}
+
+.swiper-wrapper {
+    height: 100%;
+    box-sizing: content-box;
+    display: flex;
+    width: 100%;
+    z-index: 1;
+    position: relative;
+    display: flex;
+    transform: translate3d(0px, 0, 0);
+
+    @include common.mq(sp) {
+        height: 100%;
+    }
+}
+
+.swiper-slide {
+    width: 1003px;
+    opacity: 0;
+    pointer-events: none;
+    transition-property: opacity;
+    transform: translate3d(0px, 0, 0);
+
+    @include common.mq(sp) {
+        height: 100%;
+    }
+}
+
+.slide-img {
+    max-height: 735px;
+    display: block;
+    height: 100%;
+
+    @include common.mq(sp) {
+        height: 100%;
+        color: transparent;
+        object-fit: cover;
+        object-position: 50% 50%;
+        width: 100%;
+    }
+}
+
+.slide-img img {
+    @include common.mq(sp) {
+        height: 100vh;
+    }
+}
+
+
+.main-visual-title {
+    position: absolute;
+    z-index: 2;
+    bottom: 110px;
+    top: auto;
+    left: 5.18%;
+
+    @include common.mq(tab) {
+        left: 3.18%;
+    }
+
+    @include common.mq(sp) {
+        bottom: 0;
+        top: 15%;
+    }
+}
+
+.sub-visual-title {
+    font-family: common.$font-family-default;
+    font-size: 20px;
+    letter-spacing: 2.8px;
+    line-height: 2;
+    color: #fff;
+    font-weight: 700;
+
+    @include common.mq(tab) {
+        font-size: 16px;
+        line-height: 2.3;
+    }
+
+    @include common.mq(sp) {
+        font-size: 16px;
+        font-weight: bold;
+        letter-spacing: 0.14em;
+        line-height: 2;
+    }
+}
+
+.main-visual-boxes {
+    position: absolute;
+    background: #fff;
+    z-index: 2;
+    bottom: 100px;
+    top: auto;
+    right: 3%;
+    opacity: 0.85;
+    width: 388px;
+    padding: 16px;
+
+    @include common.mq(tab) {
+    }
+
+    @include common.mq(sp) {
+        right: 7%;
+        max-width: 335px;
+        width: 89%;
+        bottom: 32px;
+        z-index: 2;
+        padding: 0;
+    }
+}
+
+.main-visual-box {
+    position: relative;
+
+    @include common.mq(sp) {
+        background-color: rgba(255, 255, 255, 0.85);
+        margin: 0 auto;
+        padding: 12px;
+        position: relative;
+    }
+
+    &::before {
+        content: '';
+        position: absolute;
+        background: url("../img/icons/img_balloon-pickup-1.png") left top no-repeat;
+        background-size: 100% auto;
+        pointer-events: none;
+        right: 0;
+        z-index: 2;
+        height: 120px;
+        top: -90px;
+        width: 168px;
+
+        @include common.mq(sp) {
+            height: 78px;
+            top: -41px;
+            width: 126px;
+        }
+    }
+}
+
+
+.main-visual-card-link {
+    display: flex;
+}
+
+
+.main-visual-card-img {
+    display: block;
+    width: 120px;
+    height: 120px;
+    object-fit: cover; // 画像のトリミング
+    object-position: 50% 50%; // 画像の真ん中に焦点を当てる
+
+    @include common.mq(sp) {
+        width: 100px;
+        height: 110px;
+        flex-shrink: 0;
+    }
+
+}
+
+.main-visual-card-link-img img{
+    width: 120px;
+    height: 120px;
+}
+
+
+.main-visual-card-link-content {
+    padding-left: 16px;
+    text-align: left;
+}
+
+.main-visual-box-date {
+    font-size: 12px;
+    font-weight: 600;
+
+    @include common.mq(sp) {
+        margin-top: 8px;
+    }
+}
+
+.main-visual-box-text {
+    font-size: 14px;
+    margin-top: 12px;
+    line-height: 1.7;
+    font-weight: 800;
+
+    @include common.mq(sp) {
+        font-size: 12px;
+        line-height: 1.5;
+    }
+}
+
+
+// ---------
+// スワイパー
+// ---------
+
+@keyframes zoomUp {
+    0% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(1.15);
+    }
+}
+
+.swiper-slide-active .slide-img,
+.swiper-slide-duplicate-active .slide-img,
+.swiper-slide-prev .slide-img {
+    animation: zoomUp 10s linear 0s 1 normal both;
+}
+
+.slide-img img {
+    display: block;
+}
+
+/* ページネーションのサイズと色 */
+
+.swiper-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet,
+.swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
+    margin: 0 8px;
+}
+
+
+.swiper-pagination-bullet {
+    background-color: #fff;
+    opacity: 1;
+}
+
+.swiper-pagination-bullet-active {
+    background-color: #D59B71;
+    opacity: 1;
+}
+
+
+.swiper-pagination-horizontal {
+    text-align: left;
+}
+
+// .swiper-container-horizontal > .swiper-pagination-bullets{
+//     left: 12px;
+//     bottom: 14px;
+// }
+// .swiper-pagination-bullet {
+//     background-color: #fff;
+//   }
+
+
+
+
+
+
+// .header-wrapper {
+//     display: flex;
+//     height: auto;
+// }
+
+// .header {
+//     flex-grow: 0;
+//     width: 200px;
+//     padding: 30px 19px 10px;
+// }
+
+// .header-img {
+//     width: 163px;
+// }
+
+// .header-nav-menus{
+//     margin-top: 64px;
+//     display: block;
+//     text-align: center;
+// }
+
+// .header-nav-item {
+//     &+& {
+//         margin-top: 32px;
+//     }
+// }
+
+// .header-nav-item-link {
+//     text-align: center;
+//     display: block;
+//     letter-spacing: 1.92px;
+// }
+
+// .header-nav-item-en {
+//     font-family: common.$font-family-english-2;
+//     display: block;
+//     font-size: 16px;
+
+// }
+
+// .header-nav-item-jp {
+//     font-size: 10px;
+//     margin-top: 5px;
+//     display: block;
+//     font-family: common.$font-family-default;
+// }
+
+// .header-sns{
+//     margin-top: 30px;
+// }
+
+// .header-sns-list {
+//     display: flex;
+//     justify-content: center;
+// }
+
+// .header-sns-item {
+//     font-size: 20px;
+
+//     &+& {
+//         margin-left: 20px;
+//     }
+// }

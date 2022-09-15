@@ -1,0 +1,198 @@
+@use "common";
+
+
+// ヘッダー
+
+.header-top-concept{
+    position: fixed;
+}
+
+
+// トップ（1st View）
+
+.main-concept-lg-wrapper {
+    margin-top: 116px;
+
+    &::after {
+        position: absolute;
+        content: '';
+        background-color: common.$color-dark;
+        width: calc(984px + 50vw - 640px);
+        z-index: -1;
+        bottom: -34%;
+        right: 0;
+        height: 200px;
+        z-index: -1;
+
+        @include common.mq(tab) {
+           bottom: 75px;
+        }
+        @include common.mq(sp) {
+        height: 100px;
+        bottom: -46%;
+        width: 87%;
+        }
+    }
+
+    @include common.mq(sp) {
+        margin-top: 53px;
+    }
+}
+
+
+.main-concept-wrapper {
+    display: flex;
+    align-items: center;
+    padding: 0 40px;
+    max-width: common.$layout-width-inner;
+    margin: 0 auto;
+
+    @include common.mq(sp) {
+        display: block;
+        padding: 0 20px;
+    }
+}
+
+.main-concept-box {
+    max-width: 390px;
+    flex-shrink: 0;
+    margin-right: 6.3%;
+    transform: translateY(-8px);
+}
+
+
+
+.main-concept-title {
+    font-size: 28px;
+    line-height: 2;
+    font-weight: 700;
+
+    @include common.mq(sp) {
+        font-size: 20px;
+    }
+}
+
+.main-concept-subtitle {
+    margin-top: 23px;
+    font-size: 14px;
+    line-height: 2;
+}
+
+.main-concept-img{
+    max-width: 640px;
+    margin-top: 36px;
+    position: relative;
+
+
+}
+
+
+.main-concept-img-box {
+  width: 100%;
+}
+
+
+
+// トップ （2nd view）
+
+.main2-concept {
+    padding-top: 120px;
+
+    @include common.mq(sp) {
+        padding-top: 77px;
+    }
+}
+
+
+
+.main2-concept-wrapper {
+    display: flex;
+    flex-direction: row-reverse;
+
+    &::after {
+        position: absolute;
+        content: '';
+        background-color: common.$color-dark;
+        width: calc(580px + 50vw - 640px);
+        z-index: -1;
+        bottom: -104%;
+        left: 0;
+        height: 437px;
+        z-index: -1;
+
+        @include common.mq(tab) {
+            bottom: -450px;
+        }
+
+        @include common.mq(sp) {
+        height: 227px;
+        bottom: -140%;
+        width: 75%;
+        }
+    }
+
+    @include common.mq(sp) {
+        display: block;
+    }
+}
+
+.main2-concept-box{
+    margin-right: 0;
+    margin-left: 6.3%;
+}
+
+
+// トップ （3rd view）
+
+.main3-concept-lg-wrapper {
+    padding-top: 160px;
+    padding-bottom: 130px;
+
+    @include common.mq(sp) {
+        padding-top: 77px;
+        padding-bottom: 0;
+    }
+}
+
+.main3-concept {
+
+    &::after {
+        position: absolute;
+        content: '';
+        background-color: common.$color-dark;
+        width: calc(400px + 50vw - 640px);
+        z-index: -1;
+        bottom: -169%;
+        right: 0;
+        height: 520px;
+        z-index: -1;
+
+        @include common.mq(tab) {
+            bottom: -93%;
+            height: 520px;
+        }
+
+        @include common.mq(sp) {
+            right: 24px;
+            height: 246px;
+            bottom: -216%;
+            width: 49%;
+            }
+    }
+
+}
+
+.main3-concept-img-box{
+    padding-top: 20px;
+}
+
+.main3-concept-img-box{
+    width: 95%;
+
+}
+
+// アクセス
+
+.access-lg-wrapper-concept {
+    margin-top: 200px;
+}

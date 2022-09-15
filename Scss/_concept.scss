@@ -1,0 +1,133 @@
+@use "common";
+
+
+.concept-lg-wrapper {
+    position: relative;
+    padding: 160px 0 340px;
+    z-index: 1;
+
+    @include common.mq(sp) {
+        padding: 160px 0 200px;
+    }
+
+    &::before {
+        position: absolute;
+        content: '';
+        background-color: common.$color-dark;
+        width: 95%;
+        z-index: -1;
+        height: 35%;
+        bottom: 255px;
+        height: 300px;
+        left: 0;
+
+        @include common.mq(sp) {
+        height: 100px;
+        width: 84%;
+        bottom: 135px;
+        }
+    }
+
+}
+
+
+.concept {
+    margin: 0 auto;
+    position: relative;
+    // max-width: common.$layout-width-canvas;
+
+    &::before {
+        position: absolute;
+        content: '';
+        background: url(../img/icons/bg_coffee-beans.png) right top no-repeat;
+        background-size: 100% auto;
+        pointer-events: none;
+        right: -40px;
+        z-index: 2;
+        width: 265px;
+        height: 265px;
+        top: -170px;
+
+        @include common.mq(sp) {
+            width: 145px;
+            height: 130px;
+            right: -17px;
+            top: -180px;
+        }
+    }
+}
+
+.concept-wrapper {
+    flex-direction: row-reverse;
+    display: flex;
+
+    @include common.mq(sp) {
+        flex: none;
+        flex-direction: column; // 要素を上から下にする
+    }
+}
+
+
+
+.concept-img {
+    width: 600px;
+
+    @include common.mq(tab) {
+        width: 40%;
+        height: 40%;
+    }
+
+    @include common.mq(sp) {
+        width: 80%;
+        height: 430px;
+        margin-top: 86px;
+    }
+}
+
+
+
+.concept-box {
+    // width: $layout-width-canvas - 600px;
+    padding: 20px 80px 22px 100px;
+
+    @include common.mq(tab) {
+        padding: 20px 50px 22px 50px;
+    }
+
+    @include common.mq(sp) {
+        padding: 0 20px;
+    }
+}
+
+.concept-title {
+    margin-top: 69px;
+    font-size: 28px;
+    font-weight: 900;
+    line-height: 2;
+    color: 222222;
+    text-align: left;
+
+    @include common.mq(tab) {
+        margin-top: 50px;
+    }
+
+    @include common.mq(sp) {
+        font-size: 20px;
+    }
+}
+
+.h2-concept{
+    text-align: left;
+}
+
+.concept-subtitle {
+    font-size: 14px;
+    text-align: left;
+    margin: 65px auto 66px;
+    line-height: 2;
+
+    @include common.mq(sp) {
+        line-height: 2.05;
+        margin: 30px auto 50px;
+    }
+}

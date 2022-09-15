@@ -1,0 +1,89 @@
+@use "common";
+
+.gallery-lg-wrapper {
+    background-color: common.$color-dark;
+    position: relative;
+    z-index: 1;
+    padding: 74px 0 87px;
+}
+
+.set-wrapper-box {
+    position: relative;
+}
+
+.gallery-wrapper-ballon {
+    position: absolute;
+    right: 55%;
+    top: -40px;
+    width: 308px;
+
+    @include common.mq('tab') {
+        right: 17%;
+        right: 57%;
+        top: -40px;
+    }
+
+    @include common.mq(sp) {
+        right: 212px;
+        top: -26px;
+        width: 205px;
+    }
+}
+
+
+.gallery-title {
+    position: relative;
+}
+
+.gallery-wrapper {
+    display: flex;
+
+    @include common.mq(tab) {
+        flex-wrap: wrap;
+        padding: 0 40px;
+        // :nth-child(2n + 1) {
+        //     margin-left: 20px;
+        // }
+    }
+
+    @include common.mq(sp) {
+        flex-wrap: wrap;
+    }
+}
+
+.gallery-img {
+    width: 257px;
+    height: 257px;
+    margin-top: 42px;
+
+    @include common.mq(tab) {
+        width: 45%;
+        height: 45%;
+        flex-grow: 1;
+        padding: 20px;
+    }
+
+    @include common.mq(pc) {
+        &+& {
+            margin-left: 24px;
+        }
+    }
+
+
+    @include common.mq(sp) {
+        width: 150px;
+        height: 150px;
+        margin-top: 42px;
+        flex-grow: 1;
+
+        &:nth-child(2n) {
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+
+        &:nth-child(2n + 1) {
+            margin-left: 20px;
+        }
+
+    }
+}

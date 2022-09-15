@@ -1,0 +1,311 @@
+@use "common";
+
+
+.set-lg-wrapper {
+    position: relative;
+    background-color: common.$color-dark;
+    padding: 74px 0 80px;
+    z-index: 1;
+
+    @include common.mq(sp) {
+        padding: 58px 0;
+    }
+}
+
+.set {
+    max-width: 1280px;
+    margin: 0 auto;
+    position: relative;
+    padding: 0 50px;
+
+    @include common.mq(sp) {
+        padding: 0;
+    }
+
+
+    &:before {
+        position: absolute;
+        content: '';
+        background: url(../img/icons/bg_coffee-leaves.png) right top no-repeat;
+        background-size: 100% auto;
+        pointer-events: none;
+        right: -25px;
+        z-index: 2;
+        width: 201px;
+        height: 228px;
+        top: -300px;
+
+        @include common.mq(sp) {
+            width: 119px;
+            height: 135px;
+            top: -260px;
+            right: -20px;
+        }
+    }
+}
+
+
+.set-wrapper-box {
+    background-color: #fff;
+    margin-top: 58px;
+    padding: 40px 30px 30px;
+    position: relative;
+
+    @include common.mq(tab) {
+        padding: 40px 20px 20px;
+    }
+
+    @include common.mq(sp) {
+        padding: 20px 20px 20px;
+    }
+}
+
+
+.set-wrapper-ballon {
+    position: absolute;
+    right: -4%;
+    top: -65px;
+    width: 308px;
+
+    @include common.mq(tab) {
+        right: 10%;
+        top: -300px;
+    }
+
+    @include common.mq(sp) {
+        right: -15px;
+        top: -232px;
+        width: 205px;
+    }
+}
+
+.set-wrapper-head {
+    position: absolute;
+    max-width: 350px;
+    width: 86.5%;
+    right: 50%;
+    top: -20px;
+    transform: translateX(50%);
+
+    @include common.mq(sp) {
+        max-width: 100%;
+        width: 250px;
+    }
+}
+
+.set-items-wrapper {
+    margin-top: 20px;
+
+}
+
+.set-items-list {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+
+    @include common.mq(tab) {
+        flex-wrap: wrap;
+    }
+
+    @include common.mq(sp) {
+        flex-wrap: wrap;
+    }
+
+}
+
+.set-items {
+
+    @include common.mq(pc) {
+        &:nth-child(2n) {
+            position: relative;
+            top: 40px;
+        }
+
+        &+& {
+            padding-left: 20px;
+        }
+    }
+
+    @include common.mq(tab) {
+        width: 47%;
+
+        &:nth-child(n + 3) {
+            margin-top: 40px;
+        }
+
+        &:nth-child(2n) {
+            margin-left: 30px;
+        }
+    }
+
+    @include common.mq(sp) {
+        width: 46%;
+
+        &:nth-child(n + 3) {
+            margin-top: 5%;
+        }
+        &:nth-child(2n + 1) {
+            margin-right: 5%;
+        }
+    }
+
+
+}
+
+.set-items-img {
+    padding-top: 100%;
+    position: relative;
+    max-width: 100%;
+    max-height: 100%;
+
+    @include common.mq(sp) {
+        margin-bottom: 16px;
+    }
+}
+
+.set-item {
+    height: 100%;
+    left: 0;
+    object-fit: cover; // 画像をいい感じに中央にトリミング
+    object-position: 50% 50%; // object-fitとセットで、画像を中央にする
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.set-items-box {
+    display: flex;
+    margin-top: 8px;
+
+    @include common.mq(sp) {
+        margin-top: 0;
+    }
+}
+
+.set-wrapper-menus {
+    background-color: #F7F6F4;
+    display: block;
+    border-radius: 8px;
+    padding: 20px 0;
+
+    @include common.mq(pc) {
+        margin-top: 90px;
+    }
+
+    @include common.mq(tab) {
+        margin-top: 40px;
+    }
+
+    @include common.mq(sp) {
+        margin-top: 40px;
+    }
+}
+
+.set-wrapper-menu {
+    display: flex;
+
+    @include common.mq(tab) {
+        text-align: center;
+        display: block;
+    }
+
+    @include common.mq(sp) {
+        text-align: center;
+        display: block;
+    }
+}
+
+.set-wrapper-img {
+    width: 700px;
+}
+
+
+.set-wrapper-detail {
+    margin-top: 20px;
+    text-align: center;
+}
+
+
+.set-items-text-icon {
+    width: 49px;
+    height: 49px;
+    font-family: common.$font-family-english-2;
+    font-size: 32px;
+    text-align: center;
+    background-color: #222222;
+    color: #fff;
+
+    @include common.mq(sp) {
+        font-size: 19px;
+        height: 26px;
+        width: 50px;
+        margin-right: 6px;
+    }
+
+}
+
+.set-items-text {
+    text-align: left;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.5;
+    padding-left: 12px;
+
+    @include common.mq(sp) {
+        font-size: 14px;
+    }
+}
+
+
+.set-wrapper-text {
+    font-size: 20px;
+    font-weight: 700;
+    text-align: right;
+    line-height: 2;
+
+    @include common.mq(tab) {
+        text-align: center;
+        font-size: 16px;
+    }
+
+    @include common.mq(sp) {
+        text-align: center;
+        font-size: 16px;
+    }
+}
+
+.set-wrapper-price {
+    font-family: common.$font-family-price;
+    font-size: 60px;
+    font-weight: 900;
+    background-image: linear-gradient(to right, #000 4px, transparent 4px);
+    background-size: 10px 2px;
+    background-repeat: repeat-x;
+    background-position: left bottom;
+
+    @include common.mq(tab) {
+        font-size: 40px;
+        margin-top: -5px;
+        padding: 0 4px 6px;
+        display: inline-block;
+        background-size: 14px 4px;
+    }
+    @include common.mq(sp) {
+        font-size: 40px;
+        margin-top: -5px;
+        padding: 0 4px 6px;
+        display: inline-block;
+        background-size: 14px 4px;
+    }
+}
+
+.set-wrapper-time {
+    font-size: 14px;
+    font-weight: 700;
+    margin-top: 14px;
+
+    @include common.mq(tab) {
+        font-size: 12px;
+        margin-top: 8px;
+    }
+}

@@ -1,0 +1,485 @@
+@charset "UTF-8";
+
+// -----
+// 原因調査コード
+// -----
+// * {
+// 	outline: 1px solid magenta;
+// }
+
+// Color
+$color-main: #382620;
+$color-background: #F3EFEB;
+$color-dark: #EAE0D5;
+$color-light: #F3EFEB;
+$color-accent: #F07317;
+$color-disable: #888888;
+$color-text: #222222;
+
+
+// Font
+$font-family-default: 'Noto Serif JP', serif;
+$font-family-english-1: 'Amatic SC', cursive;
+$font-family-english-2: 'Patua One', cursive;
+$font-family-price: 'Damion', cursive;
+
+
+// Layout-width
+$layout-width-canvas: 1280px;
+$layout-width-inner: 1100px;
+
+
+// Breakpoints
+$breakpoints: (
+    "sp": "(max-width: 767px)",
+    // "tab-only": "(min-width: 768px)",
+    "tab": "(min-width: 768px) and (max-width: #{$layout-width-inner - 1px})",
+    // "tab": "(max-width: #{$layout-width-inner - 1px})",
+    "pc": "(min-width: #{$layout-width-inner})",
+);
+
+// メディアクエリー
+@mixin mq($breakpoint: sp) {
+    @media #{map-get($breakpoints, $breakpoint)} {
+        @content;
+    }
+}
+
+// メディアクエリ（PC用、スマホ用）
+// is-pcクラスでスマホ時は表示しない、PCだけ表示
+.only-pc {
+    @include mq(pc) {
+        display: none;
+    }
+}
+
+.only-tab {
+    @include mq(tab) {
+        display: none;
+    }
+}
+
+// is-spクラスでPC時は表示しない、スマホだけ表示
+.only-sp {
+    @include mq(sp) {
+        display: none;
+    }
+}
+
+.header-sp{
+    @include mq(sp) {
+        display: none;
+    }
+}
+
+.header-sp-none {
+    @include mq(sp) {
+        display: none;
+    }
+}
+
+
+// 改行なし
+.no-line {
+    white-space: nowrap;
+}
+
+
+
+/* 基本設定
+===================================== */
+
+*,
+*::before,
+*::after {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+main {
+    display: block;
+}
+
+body {
+    background: $color-background;
+    color: $color-text;
+    line-height: 1.5;
+    font-family: $font-family-default;
+}
+
+p {
+    font-family: $font-family-default;
+}
+
+a {
+    color: $color-text;
+    cursor: pointer;
+    text-decoration: none;
+    font-family: $font-family-default;
+}
+
+img {
+    width: 100%;
+}
+
+li {
+    list-style: none;
+}
+
+ul,
+ol {
+    padding: 0;
+    list-style: none;
+}
+
+
+
+.inner {
+    width: $layout-width-inner;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+
+.h2-title {
+    font-size: 52px;
+    color: $color-text;
+    letter-spacing: 10.4px;
+    font-family: $font-family-english-1;
+    font-weight: 700;
+    text-align: center;
+
+    @include mq(sp) {
+        font-size: 40px;
+        letter-spacing: 5px;
+    }
+}
+
+
+
+.h2-subtitle {
+    font-family: $font-family-default;
+    font-size: 14px;
+    color: $color-text;
+    font-weight: 600;
+    text-align: center;
+
+    @include mq(sp) {
+        font-size: 12px;
+    }
+}
+
+
+// ------
+// ボタン
+// ------
+
+
+.btn-common-box {
+    margin: 57px auto;
+    max-width: 100%;
+    width: 280px;
+    text-align: center;
+
+    @include mq(sp) {
+        margin: 60px auto;
+    }
+}
+
+.btn-common-box-right{
+    margin-left: 0;
+
+    @include mq(sp) {
+        margin: 60px auto;
+    }
+}
+
+.btn03 {
+    /*影の基点とするためrelativeを指定*/
+    position: relative;
+    /*ボタンの形状*/
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+    outline: none;
+    /*アニメーションの指定*/
+    transition: all 0.3s ease;
+}
+
+/*ボタンの中のテキスト*/
+.btn03 span {
+    position: relative;
+    z-index: 2;
+    /*z-indexの数値をあげて文字を背景よりも手前に表示*/
+    /*テキストの形状*/
+    display: block;
+    padding: 25px 60px;
+    background: #222222;
+    color: #fff;
+    /*アニメーションの指定*/
+    transition: all 0.3s ease;
+
+    @include mq(sp) {
+        font-size: 16px;
+    }
+}
+
+/*== 右下に押し込まれる（立体が平面に） */
+
+/*影の設定*/
+.pushright:before {
+    content: "";
+    /*絶対配置で影の位置を決める*/
+    position: absolute;
+    z-index: -1;
+    top: 5px;
+    left: 5px;
+    /*影の形状*/
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    border-bottom: 1px solid #222222;
+    border-right: 1px solid #222222;
+}
+
+/*hoverの際にX・Y軸に4pxずらす*/
+.pushright:hover span {
+    background-color: #333;
+    color: #fff;
+    transform: translate(4px, 4px);
+
+}
+
+
+.only-sp {
+    display: none;
+}
+
+
+.p-tag {
+    position: absolute;
+    display: flex;
+    top: -8px;
+    left: -24px;
+    align-items: center;
+
+    @include mq(sp) {
+        top: 8px;
+        left: -8px;
+    }
+}
+
+.p-tag_text {
+    position: relative;
+    padding: 2px 12px 4px 14px;
+    background-color: $color-main;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    z-index: 1;
+
+    &::before {
+        position: absolute;
+        content: '';
+        border-width: 0 8px 4px 0;
+        border-style: solid;
+        border-color: transparent #AAAAAA transparent transparent;
+        top: 100%;
+        height: 0;
+        left: 0;
+        width: 0;
+    }
+
+    &::after {
+        position: absolute;
+        content: '';
+        border-color: #382620 transparent;
+        border-style: solid;
+        border-width: 12px 8px 12px 0px;
+        height: 0;
+        top: 0;
+        right: -8px;
+        width: 0px;
+        z-index: 1;
+    }
+}
+
+
+
+.p-tag2 {
+    position: absolute;
+    display: flex;
+    top: 10px;
+    left: -8px;
+    align-items: center;
+}
+
+.p-tag_text2 {
+    position: relative;
+    padding: 2px 12px 4px 14px;
+    background-color: $color-main;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    z-index: 1;
+
+    &::before {
+        position: absolute;
+        content: '';
+        border-width: 0 8px 4px 0;
+        border-style: solid;
+        border-color: transparent #AAAAAA transparent transparent;
+        top: 100%;
+        height: 0;
+        left: 0;
+        width: 0;
+    }
+
+    &::after {
+        position: absolute;
+        content: '';
+        border-color: #382620 transparent;
+        border-style: solid;
+        border-width: 12px 8px 12px 0px;
+        height: 0;
+        top: 0;
+        right: -8px;
+        width: 0px;
+        z-index: 1;
+    }
+}
+
+
+
+// -------
+// 共通ページのトップビュー
+// -------
+
+.top-view {
+    position: relative;
+    height: auto;
+    // height: 32vh; //全体の32%の幅
+    // vhとは、「viewport height」の略、全体の幅に対して、％で計算される。
+
+    @include mq(tab) {
+        height: auto;
+    }
+
+    @include mq(sp) {
+        height: 32vw;
+    }
+}
+
+.top-view-wrapper {
+    height: 320px;
+    display: flex;
+    justify-content: end;
+    position: relative;
+    z-index: 3;
+
+    @include mq(sp) {
+        height: 100%;
+    }
+
+    &::before {
+        position: absolute;
+        content: "";
+        border: 2px solid #fff;
+        z-index: 2;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        height: calc(100% - 18px);
+        width: calc(100% - 18px);
+
+        @include mq(sp) {
+            height: calc(100% - 10px);
+            width: calc(100% - 10px);
+        }
+    }
+
+    &::after {
+        position: absolute;
+        content: "";
+        border: 1px solid #fff;
+        z-index: 2;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        height: calc(100% - 30px);
+        width: calc(100% - 30px);
+
+        @include mq(sp) {
+            height: calc(100% - 20px);
+            width: calc(100% - 20px);
+        }
+    }
+}
+
+.top-view-title-box {
+    color: #fff;
+    font-weight: 700;
+    position: absolute;
+    content: "";
+    z-index: 2;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    @include mq(sp) {
+        margin-top: -10px;
+    }
+}
+
+.top-view-title {
+    color: #fff;
+    font-size: 72px;
+    display: block;
+    letter-spacing: 0.2em;
+    padding-left: 8px;
+
+    @include mq(sp) {
+        font-size: 32px;
+        padding-left: 15px;
+    }
+}
+
+.top-view-subtitle {
+    color: #fff;
+    display: block;
+    font-size: 14px;
+    letter-spacing: 0.25em;
+    margin-top: -4px;
+
+    @include mq(sp) {
+        margin-top: 0;
+        font-size: 12px;
+        letter-spacing: 0.1em; // 1em = 16px, 0.25em = 5px
+
+    }
+}
+
+.top-view-img {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    overflow: hidden;
+    top: 0;
+    z-index: 1;
+    background: #000;
+
+    @include mq(sp) {
+        height: 32vw;
+    }
+
+    img {
+        display: block;
+        font-family: "object-fit:cover;object-position:50% 50%";
+        height: 100%;
+        object-fit: cover;
+        object-position: 50% 50%;
+        opacity: .6;
+    }
+
+}

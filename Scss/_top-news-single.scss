@@ -1,0 +1,151 @@
+@use "common";
+
+.l-news-single-wrapper {
+    max-width: 688px;
+    margin: 116px auto;
+
+    @include common.mq(sp) {
+        padding: 0 20px 0;
+
+        p {
+            font-size: 14px;
+        }
+    }
+}
+
+.news-post-img-box {
+    width: 100%;
+    margin-bottom: 24px;
+}
+
+.news-post-title {
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1.7;
+    color: common.$color-main;
+
+    @include common.mq(sp) {
+        font-size: 20px;
+    }
+}
+
+.news-post-info {
+    margin: 43px 0 53px;
+    display: flex;
+}
+
+.news-post-date {
+    text-align: left;
+    font-size: 14px;
+    font-weight: 700;
+    position: relative;
+
+    &:after {
+        content: '';
+        position: absolute;
+        background-color: #222222;
+        height: 18px;
+        width: 1px;
+        right: -20px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+}
+
+.news-post-category {
+    font-size: 14px;
+    font-weight: 700;
+    margin-left: 34px;
+}
+
+
+.news-post-body-img {
+    width: 100%;
+    margin-top: 47px;
+    margin-bottom: 40px;
+}
+
+
+.news-post-body-h2 {
+    color: common.$color-main;
+    font-weight: 700;
+    font-size: 24px;
+    margin: 107px 0 32px;
+    position: relative;
+    border-left: 6px solid #222222;
+    padding-left: 15px;
+
+    @include common.mq(sp) {
+        font-size: 18px;
+    }
+
+}
+
+
+
+.news-post-body-h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: common.$color-main;
+    margin: 67px 0 24px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid common.$color-main;
+
+    @include common.mq(sp) {
+        font-size: 16px;
+    }
+}
+
+.news-post-body-h4 {
+    font-size: 16px;
+    font-weight: 700;
+    color: common.$color-main;
+    margin-top: 67px;
+    margin-bottom: 25px;
+
+    @include common.mq(sp) {
+        font-size: 14px;
+    }
+}
+
+.news-post-body-quote {
+    margin-top: 39px;
+    padding: 40px;
+    background-color: #fff;
+    text-align: left;
+
+    @include common.mq(sp) {
+        padding: 24px;
+        margin: 24px 0 0;
+    }
+}
+
+
+.news-post-body-quote cite {
+    margin-top: 31px;
+    text-align: right;
+}
+
+.news-post-sub-body ul {
+    margin: 39px 20px 40px;
+    list-style-type: disc;
+}
+
+.news-post-sub-body li {
+    list-style-type: disc;
+}
+
+.news-post-body-quote p {
+    line-height: 2;
+    font-size: 16px;
+
+    @include common.mq(sp) {
+        font-size: 14px;
+    }
+}
+
+.news-post-body-quote cite {
+    text-align: right;
+    margin-top: 31px;
+    display: block;
+}

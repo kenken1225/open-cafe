@@ -1,0 +1,290 @@
+@use "common";
+
+
+.l-product-wrapper {
+    margin: 132px auto;
+    max-width: 1180px;
+
+    @include common.mq(tab) {
+        padding: 0 40px 40px;
+     }
+
+     @include common.mq(sp) {
+        margin: 80px auto;
+        padding: 0 20px 30px;
+    }
+}
+
+.product-box {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+// 最初のボックス
+
+.product-list {
+    width: 100%;
+    display: flex;
+
+    &+& {
+        margin-top: 44px;
+    }
+
+    @include common.mq(sp) {
+        display: block;
+
+        &+& {
+            margin-top: 0px;
+        }
+    }
+}
+
+
+.product-item {
+    width: 47%;
+    margin-right: 3%;
+
+    @include common.mq(sp) {
+        width: 100%;
+        margin-right: 0;
+    }
+}
+
+.product-card {
+    width: 100%;
+}
+
+
+.product-sub-item {
+    width: 48%;
+    display: flex;
+    flex-wrap: wrap;
+
+    @include common.mq(sp) {
+        margin-top: 50px;
+        width: 100%;
+    }
+}
+
+.product-sub-list {
+    width: 47%;
+
+    &:nth-child(1) {
+        margin-right: 5.2%;
+    }
+
+    &:nth-child(3) {
+        margin-right: 5.2%;
+        margin-top: 5.2%;
+    }
+
+    &:nth-child(4) {
+        margin-top: 5.2%;
+    }
+
+}
+
+.product-card-thumbnail {
+    padding-top: 100%;
+    height: 0;
+    position: relative;
+}
+
+
+.product-card-thumbnail img {
+    display: block;
+    height: 100%;
+    left: 0;
+    object-fit: cover;
+    object-position: 50% 50%;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+
+.product-card-box {
+    margin-top: 12px;
+}
+
+.product-card-bg-title{
+    font-size: 24px;
+    font-weight: 700;
+    text-align: left;
+    color: #222222;
+
+    @include common.mq(sp) {
+        font-size: 14px;
+    }
+}
+
+.product-card-title {
+    font-size: 14px;
+    font-weight: 700;
+    text-align: left;
+    color: #222222;
+
+    & + & {
+        font-size: 14px;
+    }
+
+    @include common.mq(sp) {
+        font-size: 14px;
+    }
+}
+
+.product-card-price {
+    text-align: center;
+    font-size: 24px;
+    font-family: common.$font-family-price;
+
+    @include common.mq(sp) {
+        font-size: 28px;
+    }
+}
+
+.product-card-btn {
+    text-align: center;
+    max-width: 174px;
+    margin: 10px auto;
+    margin-top: 10px;
+}
+
+.product-card-btn-link {
+    background-color: common.$color-main;
+    border: 1px solid common.$color-main;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    text-align: center;
+    padding: 8px 12px;
+
+    @include common.mq(sp) {
+        font-size: 12px;
+    }
+}
+
+
+// 二番目のボックス
+
+
+.product-sub-second-item {
+    width: 100%;
+
+}
+
+.product-sub-second-item .product-sub-list {
+    width: 22%;
+
+    @include common.mq(sp) {
+        width: 46.8%;
+    }
+
+    &:nth-child(1) {
+        margin-right: 3.2%;
+
+        @include common.mq(sp) {
+            margin-right: 18px;
+        }
+    }
+
+    &:nth-child(2) {
+        margin-right: 3.2%;
+
+        @include common.mq(sp) {
+            margin-right: 0;
+        }
+    }
+
+    &:nth-child(3) {
+        margin-right: 3.2%;
+        margin-top: 0;
+
+        @include common.mq(sp) {
+            margin-right: 18px;
+            margin-top: 40px;
+        }
+    }
+
+    &:nth-child(4) {
+        margin-top: 0;
+
+        @include common.mq(sp) {
+            margin-top: 40px;
+        }
+    }
+}
+
+
+
+// ギフトラッピング
+
+.l-product-second-wrapper {
+    max-width: 1100px;
+    margin: 80px auto;
+    border: 4px solid common.$color-main;
+    padding: 70px 60px;
+    background-color: #fff;
+
+    @include common.mq(sp) {
+        padding: 30px 30px;
+    }
+}
+
+.product-second-box {
+    display: flex;
+
+    @include common.mq(sp) {
+        display: block;
+    }
+
+}
+
+.product-second-text-box {
+    width: calc(100% - 100px);
+    margin-right: 60px;
+
+    @include common.mq(sp) {
+        width: 100%;
+    }
+
+}
+
+.product-second-title {
+    color: common.$color-main;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.7;
+    text-align: left;
+    padding-bottom: 38px;
+    border-bottom: dotted; /*下線を点線にする*/
+    border-color: common.$color-main;
+    border-width: 3px;
+
+    @include common.mq(sp) {
+        font-size: 16px;
+        white-space: nowrap;
+
+    }
+
+}
+
+.product-second-text{
+    margin-top: 40px;
+    line-height: 1.7;
+
+    @include common.mq(sp) {
+        font-size: 12px;
+    }
+
+}
+
+.product-second-img-box{
+    width: calc(100% - 100px);
+
+    @include common.mq(sp) {
+        width: 100%;
+        margin-top: 45px;
+    }
+
+}
