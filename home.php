@@ -23,7 +23,7 @@ Template Name: home-page
                             <ul class="main-nav">
                                 <li class="main-nav-item">
                                     <a href="<?php echo home_url('/'); ?>" class="main-nav-item-link">
-                                        <span class="main-nav-item-en">ホーム</span>
+                                        <span class="main-nav-item-en">TOP</span>
                                         <span class="main-nav-item-jp">トップ</span>
                                     </a>
                                 </li>
